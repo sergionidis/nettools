@@ -6,9 +6,9 @@ from time import sleep
 import socket, sys, subprocess, argparse, sockets, time
 from colorama import init, Fore, Back, Style
 
-hello = "Hola amigo"
+hello = "Hola amigo  "
 for char in hello:
-    sleep(0.1)
+    sleep(0.2)
     sys.stdout.write(char)
     sys.stdout.flush()
     time.sleep(2.4)
