@@ -3,7 +3,7 @@
 
 
 from time import sleep
-import socket, sys, subprocess, argparse, sockets
+import socket, sys, subprocess, argparse, sockets, time
 from colorama import init, Fore, Back, Style
 
 hello = "Hola amigo"
@@ -11,6 +11,7 @@ for char in hello:
     sleep(0.1)
     sys.stdout.write(char)
     sys.stdout.flush()
+    time.sleep(2.4)
 
 subprocess.call('clear', shell=True)
 
