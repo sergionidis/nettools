@@ -4,8 +4,7 @@
 
 from time import sleep
 import socket, sys, subprocess, argparse, sockets
-from datetime import datetime
-
+from colorama import init, Fore, Back, Style
 
 hello = "Hola amigo"
 for char in hello:
@@ -25,12 +24,19 @@ parser = parser.parse_args()
 def main():
 	if parser.target:
 		try:
-			for port in range(1,100):
+			for port in range(1,1024):
 				ip = parser.target
 				sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+				sock.settimeout(0.2)
 				conexion = sock.connect_ex((ip, port))
+				
 				if conexion==0:
-					print ("Puerto {}: abierto".format(port))
+			
+					print(Fore.WHITE+Back.BLUE+"Puerto {}: abierto".format(port))
+					bannersocket= socket.socket()
+					bannersocket.connect((ip,port))
+					banner = bannersocket.recv(2048)
+					print(banner)
 				sock.close()
 		except :
 			print("No me pude conectar")
@@ -40,4 +46,6 @@ def main():
 
 if __name__ == '__main__':
 	main()
+
+
 
